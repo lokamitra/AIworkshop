@@ -12,7 +12,7 @@ detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_
 import cv2
 import matplotlib.pyplot as plt
 
-im = cv2.imread('image2new.jpg')
+im = cv2.imread('newimage.jpg')
 im_resized = cv2.resize(im, (800, 600), interpolation=cv2.INTER_LINEAR)
 
 plt.imshow(cv2.cvtColor(im_resized, cv2.COLOR_BGR2RGB))
