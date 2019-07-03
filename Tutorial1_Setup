@@ -5,7 +5,4 @@ Step 2:
 !wget clone https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/resnet50_weights_tf_dim_ordering_tf_kernels.h5
 
 Step 3:
-!wget clone https://github.com/OlafenwaMoses/ImageAI/releases/download/1.0/yolo.h5
-
-Step 4:
 !wget clone https://upload.wikimedia.org/wikipedia/commons/7/73/07-08_Chevrolet_Suburban_LT.jpg
