@@ -4,8 +4,8 @@ execution_path = os.getcwd()
 
 prediction = CustomImagePrediction()
 prediction.setModelTypeAsResNet()
-prediction.setModelPath(os.path.join(execution_path, "hanzi/models/model_ex-005_acc-0.974079.h5"))
-prediction.setJsonPath(os.path.join(execution_path, "hanzi/json/model_class.json"))
+prediction.setModelPath(os.path.join(execution_path, "model_ex-003_acc-0.929264.h5"))
+prediction.setJsonPath(os.path.join(execution_path, "model_class.json"))
 prediction.loadModel(num_objects=5)
 
 predictions, probabilities = prediction.predictImage(os.path.join(execution_path, "R201309691_TM.TXT.0079.021.jpg"), result_count=5)
