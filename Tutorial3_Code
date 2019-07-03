@@ -1,0 +1,20 @@
+from imageai.Prediction import ImagePrediction
+import os
+execution_path = os.getcwd()
+
+prediction = ImagePrediction()
+prediction.setModelTypeAsInceptionV3()
+prediction.setModelPath(os.path.join(execution_path, "inception_v3_weights_tf_dim_ordering_tf_kernels.h5"))
+prediction.loadModel()
+
+import cv2
+import matplotlib.pyplot as plt
+
+im = cv2.imread('07-08_Chevrolet_Suburban_LT.jpg')
+im_resized = cv2.resize(im, (1000, 600), interpolation=cv2.INTER_LINEAR)
+plt.imshow(cv2.cvtColor(im_resized, cv2.COLOR_BGR2RGB))
+plt.show()
+
+predictions, probabilities = prediction.predictImage(os.path.join(execution_path, "07-08_Chevrolet_Suburban_LT.jpg"), result_count=5 )
+for eachPrediction, eachProbability in zip(predictions, probabilities):
+    print(eachPrediction , " : " , eachProbability)
