@@ -1,0 +1,23 @@
+from imageai.Prediction.Custom import CustomImagePrediction
+import os
+execution_path = os.getcwd()
+
+prediction = CustomImagePrediction()
+prediction.setModelTypeAsResNet()
+prediction.setModelPath(os.path.join(execution_path, "hanzi/models/model_ex-005_acc-0.974079.h5"))
+prediction.setJsonPath(os.path.join(execution_path, "hanzi/json/model_class.json"))
+prediction.loadModel(num_objects=5)
+
+predictions, probabilities = prediction.predictImage(os.path.join(execution_path, "R201309691_TM.TXT.0079.021.jpg"), result_count=5)
+
+import cv2
+import matplotlib.pyplot as plt
+
+im = cv2.imread('R201309691_TM.TXT.0079.021.jpg')
+im_resized = cv2.resize(im, (600, 600), interpolation=cv2.INTER_LINEAR)
+
+plt.imshow(cv2.cvtColor(im_resized, cv2.COLOR_BGR2RGB))
+plt.show()
+
+for eachPrediction, eachProbability in zip(predictions, probabilities):
+    print(eachPrediction + " : " + eachProbability)
