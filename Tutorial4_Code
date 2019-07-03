@@ -1,0 +1,23 @@
+from imageai.Detection import ObjectDetection
+import os
+
+execution_path = os.getcwd()
+
+detector = ObjectDetection()
+detector.setModelTypeAsYOLOv3()
+detector.setModelPath( os.path.join(execution_path , "yolo.h5"))
+detector.loadModel()
+detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , "image2.jpg"), output_image_path=os.path.join(execution_path , "image2new.jpg"), minimum_percentage_probability=30)
+
+import cv2
+import matplotlib.pyplot as plt
+
+im = cv2.imread('image2new.jpg')
+im_resized = cv2.resize(im, (800, 600), interpolation=cv2.INTER_LINEAR)
+
+plt.imshow(cv2.cvtColor(im_resized, cv2.COLOR_BGR2RGB))
+plt.show()
+
+for eachObject in detections:
+  print(eachObject["name"] , " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"] )
+  print("--------------------------------")
