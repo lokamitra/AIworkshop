@@ -1,8 +1,5 @@
-Step 1:
 !wget clone https://www.dropbox.com/s/lq9ni70yxo3fw3m/hanzi.zip
 
-Step 2:
 !unzip -q "/content/hanzi.zip"
 
-Step 3:
 !wget clone http://pic.guoxuedashi.com/shufa/sf21a/R201309691_TM.TXT.0079.021.jpg
